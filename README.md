@@ -5,7 +5,7 @@ To complie the code you should confirm the path of the "omp.h" and change it. Fo
 
 Run the following code to complie the code.
 ```
-gcc-13 -fopenmp main.c main
+gcc-13 -O3 -fopenmp main.c main
 ```
 The version of my gcc is 13, please change the version according to your own situasion.
 

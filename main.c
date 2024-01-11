@@ -1,10 +1,10 @@
-#include "/opt/homebrew/opt/libomp/include/omp.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "CSR.h"
-#include "hash_table.h"
-#include "utility.h"
+#include "/opt/homebrew/opt/libomp/include/omp.h"
+#include "include/CSR.h"
+#include "include/hash_table.h"
+#include "include/utility.h"
 
 void HashSpGEMM() {
     /* prepare the input matrix a and b */

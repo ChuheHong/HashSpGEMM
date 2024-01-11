@@ -5,7 +5,9 @@
 #include <stdlib.h>
 
 #include "CSR.h"
+#include "malloc2D.h"
 #include "utility.h"
+#include "../src/malloc2D.c"
 
 #define IT int
 #define NT float
@@ -107,8 +109,8 @@ void set_table_id(HashTable *hash_table, const IT rows, const IT cols,
 void create_local_hash_table(HashTable *hash_table, const IT cols) {
 #pragma omp parallel
     {
-        int tid = omp_get_thread_num();
         IT ht_size = 0;
+        int tid = omp_get_thread_num();
         /* Get max size of hash table */
         for (IT j = hash_table->rows_offset[tid];
              j < hash_table->rows_offset[tid + 1]; ++j) {
@@ -124,6 +126,7 @@ void create_local_hash_table(HashTable *hash_table, const IT cols) {
             }
             ht_size = k;
         }
+
         hash_table->local_hash_table_id[tid] =
             (IT *)malloc(ht_size * sizeof(IT));
         hash_table->local_hash_table_val[tid] =
