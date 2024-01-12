@@ -2,6 +2,8 @@
 
 #include <stdlib.h>
 
+#include "../include/CSR.h"
+
 /* Single contiguous memory allocation of a 2D array */
 NT **malloc2D_NT(IT imax, IT jmax) {
     NT **x = (NT **)malloc(imax * sizeof(NT *) + imax * jmax * sizeof(NT));
